@@ -4,9 +4,9 @@ import { Label, Button, Input, Forms, Error } from './ContactForm.styled';
 import { useState } from "react";
 import * as yup from 'yup';
 import { useDispatch } from "react-redux";
- import { selectContacts } from 'redux/selectors';
+ import { selectContacts } from 'redux/contacts/selectors';
 import { useSelector } from "react-redux";
-import { addContacts } from "../../redux/operations";
+import { addContacts } from "redux/contacts/operations";
 
 
 

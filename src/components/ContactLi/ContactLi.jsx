@@ -1,12 +1,13 @@
 
 import { useDispatch } from "react-redux";
 import { Li, Button } from '../ContactList/ContactList.styled';
-import { deleteContacts } from 'redux/operations'
+import { deleteContacts } from 'redux/contacts/operations'
 
-export const ContactLi = ({ contacts: { name, phone, id } }) => {
+export const ContactLi = ({ contacts: { name, number, id } }) => {
   const dispatch = useDispatch();
 
   const handleDelete = (e) => {
+    console.log(id)
     dispatch(deleteContacts(id));
     e.currentTarget.disabled = true;
     e.currentTarget.classList.add('diasable');
@@ -17,7 +18,7 @@ export const ContactLi = ({ contacts: { name, phone, id } }) => {
   return (
       <Li key={id}>
         <p>
-          {name} : <span> {phone} </span>
+          {name} : <span> {number} </span>
         </p>
         <Button onClick={(e) => handleDelete(e)}
           type="button"

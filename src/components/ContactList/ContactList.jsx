@@ -3,14 +3,15 @@ import { Ul } from './ContactList.styled';
 import PropTypes from 'prop-types';
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchContacts } from "redux/operations";
-import { selectFilters, selectContacts } from "redux/selectors";
+import { fetchContacts } from "redux/contacts/operations";
+import { selectFilters, selectContacts } from "redux/contacts/selectors";
 import { ContactLi} from '../ContactLi/ContactLi';
 
 export const ContactList = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
-
+  const filter = useSelector(selectFilters).filter.filter;
+  
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
@@ -21,10 +22,10 @@ export const ContactList = () => {
       contact.name.toLowerCase().includes(normalizedFilter)
     );
   };
-  const filter = useSelector(selectFilters).filter;
+  
 
   const vizibleContacts = getVizibleContacts(contacts, filter);
-  
+ 
   if (vizibleContacts.length !== 0) {
     return (<Ul>
     {vizibleContacts.map((contacts) => (<ContactLi contacts={contacts}  key={contacts.id} />))}
