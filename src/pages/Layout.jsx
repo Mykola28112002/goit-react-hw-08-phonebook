@@ -7,7 +7,7 @@ import { useAuth } from 'hooks';
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/operations';
 
-export const Layout = () => {
+ const Layout = () => {
     const { isLoggedIn } = useAuth();
     const dispatch = useDispatch();
     const { user } = useAuth();
@@ -31,3 +31,5 @@ export const Layout = () => {
     </Suspense>
     </>
 }
+
+export default Layout;

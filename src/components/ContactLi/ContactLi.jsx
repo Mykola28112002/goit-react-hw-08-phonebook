@@ -7,7 +7,6 @@ export const ContactLi = ({ contacts: { name, number, id } }) => {
   const dispatch = useDispatch();
 
   const handleDelete = (e) => {
-    console.log(id)
     dispatch(deleteContacts(id));
     e.currentTarget.disabled = true;
     e.currentTarget.classList.add('diasable');

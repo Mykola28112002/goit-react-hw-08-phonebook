@@ -14,7 +14,7 @@ const scema = yup.object().shape({
     password: yup.string().min(7).max(15).required(),
 })
 
-export const Login = () => {
+const Login = () => {
 const dispatch = useDispatch();
 
 const [password, setPassword] = useState('');
@@ -31,7 +31,6 @@ const [email, setEmail] = useState('');
         password: password,
       })
     );
-    console.log(password,email)
     resetForm();
     
   };
@@ -62,3 +61,5 @@ const [email, setEmail] = useState('');
       </Formik> 
     </Section>
 }
+
+export default Login;

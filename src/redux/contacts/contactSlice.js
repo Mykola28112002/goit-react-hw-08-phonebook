@@ -3,12 +3,10 @@ import { createSlice } from "@reduxjs/toolkit";
 import { fetchContacts,addContacts,deleteContacts } from "./operations";
 
 const handlePending = state => {
-  console.log(state)
   state.isLoading = true;
 };
 
 const handleRejected = (state, action) => {
-  console.log(state)
   state.isLoading = false;
   state.error = action.payload;
 };
@@ -28,7 +26,6 @@ const contactsSlice = createSlice({
       state.isLoading = false;
       state.error = null;
       state.items = action.payload;
-      console.log(state.items)
       
     },
     [fetchContacts.rejected](state, action) {
@@ -40,8 +37,6 @@ const contactsSlice = createSlice({
     [addContacts.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      console.log(action.payload);
-      console.log(state.items)
       state.items.push(action.payload);
     },
     [addContacts.rejected]: handleRejected,
@@ -49,10 +44,7 @@ const contactsSlice = createSlice({
     [deleteContacts.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      console.log(state.items);
-      console.log(action);
-      const index = state.items.findIndex(contacts => contacts.id === action.requestId);
-      console.log(index);
+      const index = state.items.findIndex(contacts => contacts.id === action.payload);
       state.items.splice(index, 1);
     },
   },

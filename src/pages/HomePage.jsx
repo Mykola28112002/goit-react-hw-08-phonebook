@@ -1,7 +1,9 @@
 import { Section } from "components/Section/Section";
 
-export const HomePage = () => {
+const HomePage = () => {
     return <Section title="Hello World">
         <span>;)</span>
     </Section>
 }
+
+export default HomePage;

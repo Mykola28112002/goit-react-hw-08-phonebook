@@ -15,7 +15,7 @@ const scema = yup.object().shape({
 })
 
 
-export const Register = () => {
+const Register = () => {
     const dispatch = useDispatch();
 
     const [name, setName] = useState('');
@@ -78,3 +78,5 @@ export const Register = () => {
       </Formik> 
     </Section>
 }
+
+export default Register;
