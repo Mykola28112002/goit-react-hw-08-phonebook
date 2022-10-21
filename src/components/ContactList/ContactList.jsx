@@ -9,12 +9,14 @@ import { ContactLi} from '../ContactLi/ContactLi';
 
 export const ContactList = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(selectContacts);
-  const filter = useSelector(selectFilters).filter.filter;
-  
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
+  
+  const contacts = useSelector(selectContacts);
+  const filter = useSelector(selectFilters).filter.filter;
+  
+  
 
   const getVizibleContacts = (contacts, filter) => {
     const normalizedFilter = filter

@@ -9,6 +9,7 @@ import { refreshUser } from 'redux/auth/operations';
 import { useAuth } from 'hooks';
 import { useDispatch } from 'react-redux';
 
+
 const Layout = lazy(() => import('pages/Layout'));
 const HomePage = lazy(() => import('pages/HomePage'));
 const Register = lazy(() => import('./Register/Register'));
@@ -19,10 +20,9 @@ export function App() {
 
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
-
   useEffect(() => {
     dispatch(refreshUser());
-  }, [dispatch]);
+  },[dispatch]);
 
   return isRefreshing ? (
     <b>Refreshing user...</b>
