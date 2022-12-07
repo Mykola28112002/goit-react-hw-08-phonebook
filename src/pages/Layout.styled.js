@@ -40,6 +40,7 @@ export const Link = styled(NavLink)`
 
 export const Div = styled.div`
   display: flex;
+  align-items: center;
   gap: 15px;
  
 `;

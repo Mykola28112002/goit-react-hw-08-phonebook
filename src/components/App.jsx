@@ -16,6 +16,7 @@ const Register = lazy(() => import('./Register/Register'));
 const Login = lazy(() => import('./Login/Login'));
 const ContactsPage = lazy(() => import('pages/ContactsPage'));
 
+
 export function App() { 
 
   const dispatch = useDispatch();
